@@ -1,0 +1,7 @@
+dependencies {
+	
+	compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
+	
+	compile project( ':provider:provider-api' )
+	
+}

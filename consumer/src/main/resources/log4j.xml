@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//log4j/log4j Configuration//EN" "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[sample-dubbo-order]%d %-5p [%c] %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="asyncAppender" class="org.apache.log4j.AsyncAppender">
+        <param name="BufferSize" value="4096" />
+        <param name="Blocking" value="false"/>
+        <appender-ref ref="CONSOLE" />
+    </appender>
+    
+	<appender name="dubboAppender" class="org.apache.log4j.DailyRollingFileAppender">   
+	    <param name="File" value="/Users/mac/workspace/mine/skeleton/my-skeleton/skeleton-dubbo-spring-rpc/consumer/dubbo.log" />    
+	    <param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />    
+	    <layout class="org.apache.log4j.PatternLayout">   
+	         <param name="ConversionPattern" value="[%d{MMdd HH:mm:ss SSS\} %-5p] [%t] %c{3\} - %m%n" />   
+	    </layout>    
+	</appender>   
+	
+	<logger name="com.alibaba.dubbo" additivity="false">   
+	    <priority value ="INFO"/>
+	    <appender-ref ref="dubboAppender" />
+	</logger>
+
+    <root>
+        <level value="INFO"/>
+        <appender-ref ref="asyncAppender"/>
+        <appender-ref ref="dubboAppender"/>
+    </root>
+
+
+</log4j:configuration>

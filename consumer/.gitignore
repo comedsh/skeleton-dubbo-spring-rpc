@@ -1,0 +1,9 @@
+/build/
+/.settings/
+/.classpath
+/.DS_Store
+/.project
+/dubbo.log
+/bin/
+/dubbo.log.2016-07-20.log
+/dubbo.log.2016-09-05.log

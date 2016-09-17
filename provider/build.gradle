@@ -1,0 +1,6 @@
+dependencies {
+	
+//	compile project(':provider:provider-service')
+//	compile project(':provider:provider-api')
+	
+}
